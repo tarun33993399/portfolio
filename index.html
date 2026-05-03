@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Tarun Kumar | Cyber Security Portfolio</title>
-  <meta name="description" content="Professional portfolio of Tarun Kumar, Cyber Security student at Haridwar University, showcasing projects, skills, and cybersecurity learning journey." />
+  <meta name="description" content="Professional cybersecurity portfolio of Tarun Kumar, B.Tech Cyber Security student at Haridwar University." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
@@ -17,21 +17,22 @@
     :root {
       --bg-primary: #05070d;
       --bg-secondary: #0b1120;
-      --bg-card: rgba(17, 24, 39, 0.72);
-      --bg-card-hover: rgba(22, 30, 48, 0.88);
+      --bg-card: rgba(17, 24, 39, 0.76);
+      --bg-card-hover: rgba(22, 30, 48, 0.94);
       --accent-primary: #00e676;
       --accent-secondary: #38bdf8;
+      --accent-purple: #a78bfa;
       --accent-gradient: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
       --text-primary: #f8fafc;
-      --text-secondary: #94a3b8;
+      --text-secondary: #a6b3c7;
       --text-muted: #64748b;
       --border-color: rgba(148, 163, 184, 0.18);
-      --border-highlight: rgba(56, 189, 248, 0.35);
+      --border-highlight: rgba(56, 189, 248, 0.38);
       --font-body: "Inter", sans-serif;
       --font-heading: "Outfit", sans-serif;
       --font-code: "JetBrains Mono", monospace;
       --transition: all 0.28s ease;
-      --radius-lg: 26px;
+      --radius-lg: 28px;
       --container: 1120px;
     }
 
@@ -43,18 +44,50 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 90px;
+      scroll-padding-top: 95px;
     }
 
     body {
       font-family: var(--font-body);
       background:
-        radial-gradient(circle at top left, rgba(0, 230, 118, 0.08), transparent 34%),
-        radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent 30%),
+        radial-gradient(circle at top left, rgba(0, 230, 118, 0.13), transparent 34%),
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.13), transparent 30%),
+        radial-gradient(circle at 50% 20%, rgba(167, 139, 250, 0.08), transparent 35%),
         var(--bg-primary);
       color: var(--text-primary);
       line-height: 1.7;
       overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -3;
+      background-image:
+        linear-gradient(rgba(148, 163, 184, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(0, 230, 118, 0.08), transparent 18%),
+        radial-gradient(circle at 80% 30%, rgba(56, 189, 248, 0.08), transparent 20%);
+      filter: blur(8px);
+      animation: ambientMove 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes ambientMove {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to { transform: translate3d(1.5%, -1%, 0) scale(1.04); }
     }
 
     a {
@@ -78,13 +111,18 @@
       border: none;
     }
 
+    ::selection {
+      background: var(--accent-primary);
+      color: #03110d;
+    }
+
     .container {
       width: min(100% - 32px, var(--container));
       margin-inline: auto;
     }
 
     section {
-      padding: 105px 0;
+      padding: 108px 0;
       position: relative;
     }
 
@@ -93,39 +131,54 @@
       align-items: center;
       gap: 8px;
       margin-bottom: 14px;
-      padding: 7px 13px;
+      padding: 8px 14px;
       border: 1px solid var(--border-color);
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.58);
+      background: rgba(15, 23, 42, 0.62);
       color: var(--accent-primary);
       font-family: var(--font-code);
       font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
     }
 
     .section-title {
       font-family: var(--font-heading);
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      line-height: 1.08;
-      letter-spacing: -0.04em;
+      font-size: clamp(2.1rem, 4vw, 3.3rem);
+      line-height: 1.06;
+      letter-spacing: -0.045em;
       margin-bottom: 42px;
     }
 
     .glass-card {
-      background: var(--bg-card);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.035), transparent),
+        var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
       transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(135deg, rgba(255,255,255,0.09), transparent 32%);
+      opacity: 0.45;
     }
 
     .glass-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
       background: var(--bg-card-hover);
       border-color: var(--border-highlight);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.34);
     }
 
     .btn {
@@ -138,17 +191,34 @@
       border-radius: 999px;
       font-weight: 800;
       transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(115deg, transparent, rgba(255,255,255,0.2), transparent);
+      transform: translateX(-120%);
+      transition: transform 0.6s ease;
+    }
+
+    .btn:hover::after {
+      transform: translateX(120%);
     }
 
     .btn-primary {
       background: var(--accent-gradient);
       color: #03110d;
-      box-shadow: 0 16px 34px rgba(0, 230, 118, 0.15);
+      box-shadow: 0 16px 34px rgba(0, 230, 118, 0.18);
     }
 
     .btn-outline {
       border: 1px solid var(--border-color);
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(15, 23, 42, 0.72);
       color: var(--text-primary);
     }
 
@@ -167,6 +237,17 @@
       transform: translateY(0);
     }
 
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      z-index: 2000;
+      background: var(--accent-gradient);
+      box-shadow: 0 0 18px rgba(0, 230, 118, 0.55);
+    }
+
     nav {
       position: fixed;
       inset: 0 0 auto;
@@ -176,10 +257,11 @@
     }
 
     nav.scrolled {
-      padding: 15px 0;
+      padding: 14px 0;
       background: rgba(5, 7, 13, 0.78);
       border-bottom: 1px solid var(--border-color);
       backdrop-filter: blur(18px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
     }
 
     .nav-container {
@@ -193,6 +275,11 @@
       align-items: center;
       justify-content: center;
       min-height: 46px;
+      transition: var(--transition);
+    }
+
+    .logo:hover {
+      transform: translateY(-2px) scale(1.02);
     }
 
     .logo-img {
@@ -200,6 +287,7 @@
       width: auto;
       max-width: 190px;
       object-fit: contain;
+      filter: drop-shadow(0 10px 18px rgba(0, 230, 118, 0.14));
     }
 
     .nav-links {
@@ -214,6 +302,21 @@
       font-size: 0.95rem;
       font-weight: 700;
       transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -9px;
+      width: 100%;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--accent-gradient);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.24s ease;
     }
 
     .nav-links a:hover,
@@ -221,14 +324,20 @@
       color: var(--accent-primary);
     }
 
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
     .mobile-toggle {
       display: none;
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(15, 23, 42, 0.72);
       color: var(--text-primary);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
-      width: 44px;
-      height: 44px;
+      border-radius: 14px;
+      width: 46px;
+      height: 46px;
       font-size: 1.25rem;
     }
 
@@ -236,20 +345,8 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding-top: 110px;
+      padding-top: 112px;
       overflow: hidden;
-    }
-
-    #hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background-image:
-        linear-gradient(rgba(148, 163, 184, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(148, 163, 184, 0.045) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(to bottom, black, transparent 86%);
     }
 
     .hero-grid {
@@ -281,13 +378,20 @@
       background: var(--accent-primary);
       border-radius: 50%;
       box-shadow: 0 0 0 6px rgba(0, 230, 118, 0.12);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(0,230,118,0.45); }
+      75% { box-shadow: 0 0 0 10px rgba(0,230,118,0); }
+      100% { box-shadow: 0 0 0 0 rgba(0,230,118,0); }
     }
 
     .hero-title {
       font-family: var(--font-heading);
-      font-size: clamp(3rem, 7vw, 5.8rem);
-      line-height: 0.98;
-      letter-spacing: -0.065em;
+      font-size: clamp(3rem, 7vw, 5.9rem);
+      line-height: 0.96;
+      letter-spacing: -0.07em;
       margin-bottom: 20px;
     }
 
@@ -296,6 +400,7 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      filter: drop-shadow(0 16px 34px rgba(0, 230, 118, 0.08));
     }
 
     .hero-role {
@@ -353,7 +458,7 @@
       height: 44px;
       border: 1px solid var(--border-color);
       border-radius: 14px;
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(15, 23, 42, 0.72);
       color: var(--text-secondary);
       transition: var(--transition);
     }
@@ -382,6 +487,17 @@
         0 30px 70px rgba(0, 0, 0, 0.34),
         0 0 45px rgba(0, 230, 118, 0.08);
       animation: floatProfile 6s ease-in-out infinite;
+    }
+
+    .profile-wrapper::after {
+      content: "";
+      position: absolute;
+      inset: -18px;
+      z-index: -1;
+      border-radius: 42px;
+      background: var(--accent-gradient);
+      filter: blur(34px);
+      opacity: 0.13;
     }
 
     .profile-img-container {
@@ -427,7 +543,7 @@
       padding: 11px 16px;
       border: 1px solid var(--border-color);
       border-radius: 16px;
-      background: rgba(15, 23, 42, 0.82);
+      background: rgba(15, 23, 42, 0.84);
       backdrop-filter: blur(14px);
       color: var(--text-primary);
       font-size: 0.88rem;
@@ -597,6 +713,7 @@
       gap: 10px;
       align-items: center;
       margin-bottom: 20px;
+      font-size: 1.22rem;
     }
 
     .skill-category h3 i,
@@ -685,19 +802,40 @@
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
+      gap: 26px;
+      align-items: stretch;
     }
 
     .project-card {
       display: flex;
       flex-direction: column;
-      min-height: 330px;
+      min-height: 430px;
+      padding: 34px;
+      position: relative;
+    }
+
+    .project-card::after {
+      content: "";
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      bottom: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0, 230, 118, 0.45), transparent);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .project-card:hover::after {
+      opacity: 1;
     }
 
     .project-header {
       display: flex;
       justify-content: space-between;
       margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
     }
 
     .project-links {
@@ -708,21 +846,57 @@
     .project-links a {
       color: var(--text-secondary);
       font-size: 1.25rem;
+      transition: var(--transition);
+    }
+
+    .project-links a:hover {
+      color: var(--accent-primary);
+      transform: translateY(-2px);
     }
 
     .project-title {
-      font-size: 1.4rem;
+      font-size: 1.45rem;
       line-height: 1.22;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .project-desc {
+      min-height: 116px;
+      font-size: 0.98rem;
+      line-height: 1.75;
+      position: relative;
+      z-index: 2;
+    }
+
+    .project-tags {
+      margin-top: 28px;
+      margin-bottom: 26px;
+      gap: 11px;
+      position: relative;
+      z-index: 2;
     }
 
     .project-action {
       margin-top: auto;
+      padding-top: 8px;
+      position: relative;
+      z-index: 2;
     }
 
     .project-action .btn {
       width: 100%;
-      border-radius: 14px;
+      border-radius: 16px;
+      min-height: 52px;
+      background: rgba(15, 23, 42, 0.84);
+      border-color: rgba(148, 163, 184, 0.22);
+    }
+
+    .project-action .btn:hover {
+      border-color: rgba(0, 230, 118, 0.48);
+      background: rgba(0, 230, 118, 0.09);
+      color: var(--text-primary);
     }
 
     .timeline {
@@ -756,6 +930,7 @@
       border: 4px solid var(--accent-primary);
       border-radius: 50%;
       background: var(--bg-primary);
+      box-shadow: 0 0 0 8px rgba(0,230,118,0.06);
     }
 
     .timeline-card {
@@ -812,6 +987,7 @@
     .contact-cards {
       display: grid;
       gap: 14px;
+      margin-top: 22px;
     }
 
     .contact-card {
@@ -819,6 +995,12 @@
       border: 1px solid var(--border-color);
       border-radius: 18px;
       background: rgba(15, 23, 42, 0.56);
+      transition: var(--transition);
+    }
+
+    .contact-card:hover {
+      transform: translateX(5px);
+      border-color: var(--border-highlight);
     }
 
     .form-row {
@@ -833,14 +1015,26 @@
       margin-bottom: 18px;
     }
 
+    .form-group label {
+      color: #dbeafe;
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
     .form-control {
       width: 100%;
       border: 1px solid var(--border-color);
       border-radius: 14px;
       outline: none;
-      background: rgba(2, 6, 23, 0.4);
+      background: rgba(2, 6, 23, 0.42);
       color: var(--text-primary);
       padding: 15px 16px;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      border-color: rgba(0, 230, 118, 0.42);
+      box-shadow: 0 0 0 4px rgba(0, 230, 118, 0.08);
     }
 
     textarea.form-control {
@@ -905,6 +1099,45 @@
       transform: translateY(0);
     }
 
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .hero-left,
+      .hero-grid {
+        text-align: center;
+      }
+
+      .hero-bio {
+        margin-inline: auto;
+      }
+
+      .hero-ctas,
+      .hero-socials {
+        justify-content: center;
+      }
+
+      .skills-grid,
+      .achievements-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-desc {
+        min-height: auto;
+      }
+    }
+
     @media (max-width: 768px) {
       body {
         line-height: 1.6;
@@ -962,6 +1195,10 @@
         border-radius: 12px;
       }
 
+      .nav-links a::after {
+        display: none;
+      }
+
       #hero {
         min-height: auto;
         padding-top: 105px;
@@ -985,7 +1222,7 @@
       }
 
       .hero-title {
-        font-size: 2.7rem;
+        font-size: 2.75rem;
         line-height: 1.02;
         letter-spacing: -0.045em;
       }
@@ -1153,10 +1390,22 @@
         font-size: 1.85rem;
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
   </style>
 </head>
 
 <body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
   <nav id="navbar">
     <div class="container nav-container">
       <a href="#hero" class="logo" aria-label="Tarun Kumar Home">
@@ -1192,7 +1441,7 @@
 
         <p class="hero-bio">
           I am a B.Tech CSE Cyber Security student at Haridwar University, passionate about ethical hacking,
-          secure systems, password security, networking, and building practical cybersecurity projects.
+          secure systems, password security, networking, vulnerability scanning, and building practical cybersecurity projects.
         </p>
 
         <div class="status-badge">
@@ -1246,7 +1495,8 @@
 
           <p class="about-text">
             I enjoy building practical projects that solve real security problems and improve my technical skills.
-            My goal is to secure digital infrastructure and contribute meaningfully to the cybersecurity domain.
+            My current focus is on Python-based security tools, secure web applications, vulnerability scanning,
+            and professional project deployment using GitHub and Vercel.
           </p>
 
           <div class="interest-chips">
@@ -1261,7 +1511,7 @@
           </div>
 
           <div class="stats-grid">
-            <div class="stat-card"><strong>4+</strong><span>Projects</span></div>
+            <div class="stat-card"><strong>2+</strong><span>Cyber Projects</span></div>
             <div class="stat-card"><strong>2+</strong><span>Certifications</span></div>
             <div class="stat-card"><strong>1+</strong><span>Year Learning</span></div>
             <div class="stat-card"><strong>Open</strong><span>Internships</span></div>
@@ -1274,8 +1524,8 @@
             <li class="info-item"><div class="info-icon-wrapper"><i class="fa-solid fa-building-columns"></i></div><div><span class="label">University</span><span class="value">Haridwar University</span></div></li>
             <li class="info-item"><div class="info-icon-wrapper"><i class="fa-solid fa-graduation-cap"></i></div><div><span class="label">Degree</span><span class="value">B.Tech in Computer Science Engineering</span></div></li>
             <li class="info-item"><div class="info-icon-wrapper"><i class="fa-solid fa-shield-halved"></i></div><div><span class="label">Specialization</span><span class="value">Cyber Security</span></div></li>
-            <li class="info-item"><div class="info-icon-wrapper"><i class="fa-solid fa-calendar-days"></i></div><div><span class="label">Year</span><span class="value">2nd Year | 2023 – Present</span></div></li>
-            <li class="info-item"><div class="info-icon-wrapper"><i class="fa-solid fa-location-dot"></i></div><div><span class="label">Location</span><span class="value">Haridwar, Uttarakhand, India</span></div></li>
+            <li class="info-item"><div class="info-icon-wrapper"><i class="fa-solid fa-calendar-days"></i></div><div><span class="label">Year</span><span class="value">3rd Year | 2023 – Present</span></div></li>
+            <li class="info-item"><div class="info-icon-wrapper"><i class="fa-solid fa-location-dot"></i></div><div><span class="label">Location</span><span class="value">Roorkee, Uttarakhand, India</span></div></li>
             <li class="info-item"><div class="info-icon-wrapper"><i class="fa-solid fa-envelope"></i></div><div><span class="label">Email</span><span class="value">tarunbatshas@gmail.com</span></div></li>
           </ul>
         </div>
@@ -1298,9 +1548,9 @@
             <li><i class="fa-solid fa-check"></i> Password Security</li>
             <li><i class="fa-solid fa-check"></i> Ethical Hacking Basics</li>
             <li><i class="fa-solid fa-check"></i> Vulnerability Assessment Basics</li>
+            <li><i class="fa-solid fa-check"></i> Web Security Basics</li>
+            <li><i class="fa-solid fa-check"></i> Security Header Analysis</li>
             <li><i class="fa-solid fa-check"></i> Cyber Threat Awareness</li>
-            <li><i class="fa-solid fa-check"></i> OSINT Basics</li>
-            <li><i class="fa-solid fa-check"></i> System Hardening Basics</li>
           </ul>
         </div>
 
@@ -1308,24 +1558,24 @@
           <h3><i class="fa-solid fa-laptop-code"></i> Programming & Development</h3>
           <ul class="skill-list">
             <li><i class="fa-solid fa-check"></i> Python</li>
+            <li><i class="fa-solid fa-check"></i> Flask Basics</li>
             <li><i class="fa-solid fa-check"></i> C++</li>
             <li><i class="fa-solid fa-check"></i> Java Basics</li>
             <li><i class="fa-solid fa-check"></i> HTML</li>
             <li><i class="fa-solid fa-check"></i> CSS</li>
             <li><i class="fa-solid fa-check"></i> JavaScript</li>
-            <li><i class="fa-solid fa-check"></i> Git & GitHub</li>
           </ul>
         </div>
 
         <div class="skill-category glass-card fade-up">
           <h3><i class="fa-solid fa-screwdriver-wrench"></i> Tools & Concepts</h3>
           <ul class="skill-list">
+            <li><i class="fa-solid fa-check"></i> Git & GitHub</li>
+            <li><i class="fa-solid fa-check"></i> Vercel Deployment</li>
             <li><i class="fa-solid fa-check"></i> Kali Linux Basics</li>
             <li><i class="fa-solid fa-check"></i> Nmap Basics</li>
             <li><i class="fa-solid fa-check"></i> Wireshark Basics</li>
             <li><i class="fa-solid fa-check"></i> Password Hashing</li>
-            <li><i class="fa-solid fa-check"></i> CTF Beginner</li>
-            <li><i class="fa-solid fa-check"></i> Firewall Concepts</li>
             <li><i class="fa-solid fa-check"></i> SSL/TLS Basics</li>
           </ul>
         </div>
@@ -1338,7 +1588,7 @@
           <div><div class="skill-bar-info"><span>Python</span><span>65%</span></div><div class="skill-bar-bg"><div class="skill-fill" data-width="65%"></div></div></div>
           <div><div class="skill-bar-info"><span>JavaScript</span><span>60%</span></div><div class="skill-bar-bg"><div class="skill-fill" data-width="60%"></div></div></div>
           <div><div class="skill-bar-info"><span>Network Security</span><span>55%</span></div><div class="skill-bar-bg"><div class="skill-fill" data-width="55%"></div></div></div>
-          <div><div class="skill-bar-info"><span>Linux CLI</span><span>50%</span></div><div class="skill-bar-bg"><div class="skill-fill" data-width="50%"></div></div></div>
+          <div><div class="skill-bar-info"><span>Flask & Deployment</span><span>55%</span></div><div class="skill-bar-bg"><div class="skill-fill" data-width="55%"></div></div></div>
         </div>
       </div>
     </div>
@@ -1354,41 +1604,78 @@
       <div class="projects-filter fade-up">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="cyber">Cyber Security</button>
-        <button class="filter-btn" data-filter="web">Web Development</button>
-        <button class="filter-btn" data-filter="ui">UI Design</button>
+        <button class="filter-btn" data-filter="web">Web Security</button>
       </div>
 
       <div class="projects-grid">
         <div class="project-card glass-card fade-up" data-category="cyber">
-          <div class="project-header"><i class="fa-regular fa-folder-open folder-icon"></i><div class="project-links"><a href="https://github.com/tarun33993399" target="_blank"><i class="fa-brands fa-github"></i></a><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+          <div class="project-header">
+            <i class="fa-regular fa-folder-open folder-icon"></i>
+            <div class="project-links">
+              <a href="https://github.com/tarun33993399" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://secure-pass-ai.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open SecurePass AI">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+
           <h3 class="project-title">SecurePass AI – Password Strength Checker</h3>
-          <p class="project-desc">A cybersecurity-based tool that analyzes password strength and provides real-time feedback to users.</p>
-          <div class="project-tags"><span class="tag">Python</span><span class="tag">Password Security</span><span class="tag">Cyber Security</span></div>
-          <div class="project-action"><a href="#" class="btn btn-outline">View Project</a></div>
+
+          <p class="project-desc">
+            A cybersecurity-based password analysis tool that checks password strength, detects weak patterns,
+            and provides real-time security improvement suggestions to help users create stronger passwords.
+          </p>
+
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Password Security</span>
+            <span class="tag">Cyber Security</span>
+            <span class="tag">Logic Building</span>
+          </div>
+
+          <div class="project-action">
+            <a href="https://secure-pass-ai.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> View Project
+            </a>
+          </div>
         </div>
 
-        <div class="project-card glass-card fade-up" data-category="ui">
-          <div class="project-header"><i class="fa-regular fa-folder-open folder-icon"></i><div class="project-links"><a href="https://github.com/tarun33993399" target="_blank"><i class="fa-brands fa-github"></i></a><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
-          <h3 class="project-title">Gaming Livestream UI Overlay</h3>
-          <p class="project-desc">Designed a professional and animated gaming livestream UI overlay for YouTube and Twitch.</p>
-          <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
-          <div class="project-action"><a href="#" class="btn btn-outline">View Project</a></div>
-        </div>
+        <div class="project-card glass-card fade-up" data-category="cyber web">
+          <div class="project-header">
+            <i class="fa-regular fa-folder-open folder-icon"></i>
+            <div class="project-links">
+              <a href="https://github.com/tarun33993399/vulnscan-mini" target="_blank" rel="noopener noreferrer" aria-label="VulnScan Mini GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://vulnscan-mini.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open VulnScan Mini">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
 
-        <div class="project-card glass-card fade-up" data-category="web">
-          <div class="project-header"><i class="fa-regular fa-folder-open folder-icon"></i><div class="project-links"><a href="https://github.com/tarun33993399" target="_blank"><i class="fa-brands fa-github"></i></a><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
-          <h3 class="project-title">Portfolio Website Design</h3>
-          <p class="project-desc">Created a personal portfolio UI showcasing projects, skills, design work, and social links.</p>
-          <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Responsive</span></div>
-          <div class="project-action"><a href="#" class="btn btn-outline">View Project</a></div>
-        </div>
+          <h3 class="project-title">VulnScan Mini – Web Vulnerability Scanner</h3>
 
-        <div class="project-card glass-card fade-up" data-category="web">
-          <div class="project-header"><i class="fa-regular fa-folder-open folder-icon"></i><div class="project-links"><a href="https://github.com/tarun33993399" target="_blank"><i class="fa-brands fa-github"></i></a><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
-          <h3 class="project-title">College Event Management UI</h3>
-          <p class="project-desc">Designed an intuitive web interface for managing college events and registrations.</p>
-          <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">UI/UX</span></div>
-          <div class="project-action"><a href="#" class="btn btn-outline">View Project</a></div>
+          <p class="project-desc">
+            A Python and Flask based ethical web vulnerability scanner that analyzes authorized URLs for SQL Injection
+            indicators, reflected XSS, missing security headers, insecure forms, risk scoring, and JSON reports.
+          </p>
+
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Flask</span>
+            <span class="tag">Web Security</span>
+            <span class="tag">SQLi</span>
+            <span class="tag">XSS</span>
+            <span class="tag">Security Headers</span>
+          </div>
+
+          <div class="project-action">
+            <a href="https://vulnscan-mini.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> View Project
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -1402,10 +1689,58 @@
       </div>
 
       <div class="timeline">
-        <div class="timeline-item fade-up"><div class="timeline-dot"></div><div class="timeline-card glass-card"><span class="timeline-date">2023 – Present</span><h3 class="timeline-title">B.Tech CSE – Cyber Security</h3><div class="timeline-org">Haridwar University</div><p class="timeline-desc">Currently learning cybersecurity fundamentals, programming, networking, secure systems, and practical security concepts.</p></div></div>
-        <div class="timeline-item fade-up"><div class="timeline-dot"></div><div class="timeline-card glass-card"><span class="timeline-date">2024</span><h3 class="timeline-title">Cyber Security Learning</h3><div class="timeline-org">Self Learning + Academic Practice</div><p class="timeline-desc">Practicing password security, ethical hacking basics, networking, and secure coding concepts.</p></div></div>
-        <div class="timeline-item fade-up"><div class="timeline-dot"></div><div class="timeline-card glass-card"><span class="timeline-date">2024</span><h3 class="timeline-title">SecurePass AI Project</h3><div class="timeline-org">Personal Cyber Security Project</div><p class="timeline-desc">Built a password strength checker project to understand password security and cybersecurity logic.</p></div></div>
-        <div class="timeline-item fade-up"><div class="timeline-dot"></div><div class="timeline-card glass-card"><span class="timeline-date">2025</span><h3 class="timeline-title">Portfolio & Frontend Projects</h3><div class="timeline-org">Personal Development</div><p class="timeline-desc">Created portfolio, UI designs, and frontend-based projects.</p></div></div>
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <span class="timeline-date">2023 – Present</span>
+            <h3 class="timeline-title">B.Tech CSE – Cyber Security</h3>
+            <div class="timeline-org">Haridwar University</div>
+            <p class="timeline-desc">
+              Currently pursuing B.Tech in Computer Science Engineering with Cyber Security specialization,
+              focusing on programming, networking, ethical hacking fundamentals, and secure system concepts.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <span class="timeline-date">2024</span>
+            <h3 class="timeline-title">SecurePass AI – Password Strength Checker</h3>
+            <div class="timeline-org">Personal Cyber Security Project</div>
+            <p class="timeline-desc">
+              Developed a password strength checker that analyzes password patterns, identifies weak combinations,
+              and gives real-time security feedback to help users create stronger passwords.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <span class="timeline-date">2026</span>
+            <h3 class="timeline-title">VulnScan Mini – Web Vulnerability Scanner</h3>
+            <div class="timeline-org">Python Flask Cyber Security Project</div>
+            <p class="timeline-desc">
+              Built an educational and ethical web vulnerability scanner using Python, Flask, Requests, and BeautifulSoup.
+              The tool checks authorized URLs for SQL Injection indicators, reflected XSS, missing security headers,
+              insecure form endpoints, and generates JSON-based scan reports.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <span class="timeline-date">2026</span>
+            <h3 class="timeline-title">GitHub & Vercel Deployment</h3>
+            <div class="timeline-org">Project Deployment Practice</div>
+            <p class="timeline-desc">
+              Uploaded cybersecurity projects to GitHub and deployed live web applications using Vercel,
+              improving practical experience with version control, hosting, and project presentation.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1422,8 +1757,8 @@
         <div class="achievement-card glass-card fade-up"><div class="achiev-icon"><i class="fa-solid fa-user-secret"></i></div><div class="achiev-title">Ethical Hacking Basics</div></div>
         <div class="achievement-card glass-card fade-up"><div class="achiev-icon"><i class="fa-brands fa-python"></i></div><div class="achiev-title">Python Programming Practice</div></div>
         <div class="achievement-card glass-card fade-up"><div class="achiev-icon"><i class="fa-solid fa-key"></i></div><div class="achiev-title">SecurePass AI Project Completion</div></div>
-        <div class="achievement-card glass-card fade-up"><div class="achiev-icon"><i class="fa-brands fa-github"></i></div><div class="achiev-title">Git & GitHub Project Deployment</div></div>
-        <div class="achievement-card glass-card fade-up"><div class="achiev-icon"><i class="fa-solid fa-laptop-code"></i></div><div class="achiev-title">Web Development Portfolio Projects</div></div>
+        <div class="achievement-card glass-card fade-up"><div class="achiev-icon"><i class="fa-solid fa-bug"></i></div><div class="achiev-title">VulnScan Mini Project Completion</div></div>
+        <div class="achievement-card glass-card fade-up"><div class="achiev-icon"><i class="fa-brands fa-github"></i></div><div class="achiev-title">GitHub & Vercel Project Deployment</div></div>
       </div>
 
       <div class="achiev-note fade-up">Certifications can be updated later as new verified credentials are completed.</div>
@@ -1442,10 +1777,25 @@
           <p class="contact-text">Open to internships, collaborations, and cybersecurity projects.</p>
 
           <div class="contact-cards">
-            <a href="mailto:tarunbatshas@gmail.com" class="contact-card"><div class="contact-icon"><i class="fa-solid fa-envelope"></i></div><div><span class="contact-info-label">Email</span><span class="contact-detail">tarunbatshas@gmail.com</span></div></a>
-            <a href="https://github.com/tarun33993399" target="_blank" class="contact-card"><div class="contact-icon"><i class="fa-brands fa-github"></i></div><div><span class="contact-info-label">GitHub</span><span class="contact-detail">github.com/tarun33993399</span></div></a>
-            <a href="https://www.linkedin.com/in/tarun-chauhan-441a4a305" target="_blank" class="contact-card"><div class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></div><div><span class="contact-info-label">LinkedIn</span><span class="contact-detail">Tarun Kumar</span></div></a>
-            <div class="contact-card"><div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div><div><span class="contact-info-label">Location</span><span class="contact-detail">Haridwar, Uttarakhand, India</span></div></div>
+            <a href="mailto:tarunbatshas@gmail.com" class="contact-card">
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div><span class="contact-info-label">Email</span><span class="contact-detail">tarunbatshas@gmail.com</span></div>
+            </a>
+
+            <a href="https://github.com/tarun33993399" target="_blank" rel="noopener noreferrer" class="contact-card">
+              <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+              <div><span class="contact-info-label">GitHub</span><span class="contact-detail">github.com/tarun33993399</span></div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/tarun-chauhan-441a4a305" target="_blank" rel="noopener noreferrer" class="contact-card">
+              <div class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+              <div><span class="contact-info-label">LinkedIn</span><span class="contact-detail">Tarun Kumar</span></div>
+            </a>
+
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div><span class="contact-info-label">Location</span><span class="contact-detail">Roorkee, Uttarakhand, India</span></div>
+            </div>
           </div>
         </div>
 
@@ -1469,8 +1819,8 @@
       <h3 class="footer-name">Tarun Kumar</h3>
       <div class="footer-role">Cyber Security Student & Ethical Hacking Enthusiast</div>
       <div class="footer-socials">
-        <a href="https://github.com/tarun33993399" target="_blank" class="social-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/tarun-chauhan-441a4a305" target="_blank" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/tarun33993399" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/tarun-chauhan-441a4a305" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
         <a href="mailto:tarunbatshas@gmail.com" class="social-link" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       </div>
       <div class="copyright">Designed & Built by Tarun Kumar © 2026</div>
@@ -1488,10 +1838,16 @@
     const sections = document.querySelectorAll("section");
     const filterButtons = document.querySelectorAll(".filter-btn");
     const projectCards = document.querySelectorAll(".project-card");
+    const scrollProgress = document.getElementById("scrollProgress");
 
-    window.addEventListener("scroll", () => {
+    function updateScrollState() {
       navbar.classList.toggle("scrolled", window.scrollY > 50);
       backToTop.classList.toggle("visible", window.scrollY > 420);
+
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      scrollProgress.style.width = `${scrollPercent}%`;
 
       let current = "";
 
@@ -1511,7 +1867,10 @@
           link.classList.add("active");
         }
       });
-    });
+    }
+
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+    updateScrollState();
 
     mobileToggle.addEventListener("click", () => {
       navLinks.classList.toggle("active");
@@ -1543,7 +1902,8 @@
         const filter = button.dataset.filter;
 
         projectCards.forEach((card) => {
-          const shouldShow = filter === "all" || card.dataset.category === filter;
+          const categories = card.dataset.category.split(" ");
+          const shouldShow = filter === "all" || categories.includes(filter);
 
           if (shouldShow) {
             card.style.display = "flex";
